@@ -28,7 +28,7 @@ public class TestaListaDeAula {
 		
 		System.out.println("-------------------------------------------");
 
-		// Duas formas de ordenar a lista de aulas pelo tempo
+		// Duas formas de ordenar a lista de aulas pelo tempo - Codigo 3.5: Ordenando com Java 8
 		
 		listaDeAulas.sort(Comparator.comparing(Aula::getTempo));
 		//Collections.sort(listaDeAulas, Comparator.comparing(Aula::getTempo));	
