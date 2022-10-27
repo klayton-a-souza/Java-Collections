@@ -22,8 +22,9 @@ public class TesteCurso2 {
 		System.out.println(aulas);
 		
 		// Codigo 4.4: Obtendo o tempo total de aulas
-		System.out.println(javaColecoes.getTempoTotal());
+		System.out.println(javaColecoes.getTempoTotal());		
 		
+		// Codigo 4.5: Melhorando a exibição do curso
 		System.out.println(javaColecoes);
 
 	}
