@@ -2,8 +2,11 @@ package br.com.alura;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class Curso {
@@ -12,6 +15,7 @@ public class Curso {
 	private String instrutor;
 	private List<Aula> listaDeAulas = new ArrayList<Aula>();
 	private Set<Aluno> listaDeAlunos = new HashSet<>();
+	private Map<Integer,Aluno> matriculaParaAluno = new HashMap<>(); //Codigo 10.6: Criando o mapa de alunos
 
 	public Curso(String nome, String instrutor) {
 		this.nome = nome;
@@ -30,13 +34,13 @@ public class Curso {
 	public List<Aula> getListaDeAulas() {
 		return Collections.unmodifiableList(listaDeAulas);
 	}
-	
+
 	public Set<Aluno> getAlunosMatriculados() {
 		return Collections.unmodifiableSet(listaDeAlunos);
 	}
 
 	public void adiciona(Aula aula) {
-		this.listaDeAulas.add(aula);
+		this.listaDeAulas.add(aula);		
 	}
 
 	// Codigo 4.4: Obtendo o tempo total de aulas
@@ -47,7 +51,8 @@ public class Curso {
 		}
 		return tempoTotal;
 	}
-	// Codigo 4.5: Melhorando a exibição do curso	
+
+	// Codigo 4.5: Melhorando a exibição do curso
 	@Override
 	public String toString() {
 		return "[Curso: " + this.nome + ",tempo total: " + this.getTempoTotal() + "]";
@@ -55,6 +60,7 @@ public class Curso {
 
 	public void matricularAluno(Aluno aluno) {
 		this.listaDeAlunos.add(aluno);
+		this.matriculaParaAluno.put(aluno.getNumeroMatricula(),aluno);
 	}
 
 	// Codigo 7.3: Verificando se está matriculado
@@ -62,6 +68,9 @@ public class Curso {
 		return this.listaDeAlunos.contains(aluno);
 	}
 
-
+	 //Codigo 10.6: Criando o mapa de alunos
+	public Aluno buscaAlunoPelaMatricula(int numeroMatricula) {
+		return matriculaParaAluno.get(numeroMatricula);		
+	}
 
 }
