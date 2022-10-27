@@ -1,5 +1,8 @@
 package br.com.alura;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class TestaCursoComAlunos {
 
 	public static void main(String[] args) {
@@ -20,9 +23,21 @@ public class TestaCursoComAlunos {
 		javaColecoes.matricularAluno(a3);
 		javaColecoes.matricularAluno(a4);
 
-		javaColecoes.getAlunosMatriculados().forEach(aluno -> {
-			System.out.println(aluno);
-		});
+		System.out.println("Todos alunos matriculados");
+		
+		// Codigo 8.4: Recordar e viver
+		Set<Aluno> alunosSet = javaColecoes.getAlunosMatriculados();
+		Iterator<Aluno> iterador = alunosSet.iterator();
+
+		// Codigo 8.6: Refazendo à moda antiga
+		while(iterador.hasNext()) {
+			Aluno proximoAluno = iterador.next();
+			System.out.println(proximoAluno);
+		}
+		
+//		javaColecoes.getAlunosMatriculados().forEach(aluno -> {
+//			System.out.println(aluno);
+//		});
 
 		System.out.println("O aluno: " + a1 + " esta matriculado? " + javaColecoes.estaMatriculado(a1));
 		
