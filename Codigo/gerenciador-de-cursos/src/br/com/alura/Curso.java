@@ -57,6 +57,11 @@ public class Curso {
 		this.listaDeAlunos.add(aluno);
 	}
 
+	// Codigo 7.3: Verificando se está matriculado
+	public boolean estaMatriculado(Aluno aluno) {
+		return this.listaDeAlunos.contains(aluno);
+	}
+
 
 
 }
